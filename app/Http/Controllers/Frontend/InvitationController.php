@@ -8,11 +8,9 @@ use Illuminate\Http\Request;
 
 class InvitationController extends Controller
 {
-    public function index(Request $request)
+    public function index(string $slug)
     {
-        $guestName = $request->query('to');
-
-        $guest = Guest::where('slug', $guestName)->first();
+        $guest = Guest::where('slug', $slug)->first();
 
         if (!$guest) {
             abort(404);

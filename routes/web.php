@@ -20,9 +20,8 @@ Route::get('/', function () {
 Route::namespace('App\Http\Controllers\Frontend')->group(function () {
     Route::get('/profile', 'ProfileController@index')->name('profile');
     Route::post('/profile', 'ProfileController@update')->name('profile.update');
-    Route::get('/asep-dan-nurhayati', 'InvitationController@index')->name('invitation');
+    Route::get('/{slug}', 'InvitationController@index')->name('invitation');
 });
-
 
 Auth::routes();
 // Admin
